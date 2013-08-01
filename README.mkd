@@ -1,0 +1,26 @@
+# neat.vim
+
+A simple VIM plugin to help you pretty print your data.
+
+
+## Usage
+
+Just call `:Neat` to make your current buffer neater. Ranges work as well.
+
+Want to invoke the neatness function of another filetype? Use `:Neat <ft>`.
+
+
+## Extending neat.vim
+
+To create neatness for your filetypes, define a global variable with the name
+`g:Neat<ft>` whereas `<ft>` is your filetype with the first letter Capitalized.
+This variable has to be a list of command strings.
+
+
+### Example
+
+A simple definition for files of type `xml`:
+
+```VimL
+let g:NeatXml = [ 's/></>\r</ge', 'normal ==' ]
+```

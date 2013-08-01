@@ -1,0 +1,60 @@
+*neat.txt*                                          Making your buffers neat 1.0
+
+                                              
+        _/      _/                        _/      
+       _/_/    _/    _/_/      _/_/_/  _/_/_/_/   
+      _/  _/  _/  _/_/_/_/  _/    _/    _/        
+     _/    _/_/  _/        _/    _/    _/         
+    _/      _/    _/_/_/    _/_/_/      _/_/      
+
+                                              
+
+==============================================================================
+0. Contents                                                          *neat-help*
+
+  1. Introduction                                  |neat-intro|
+  2. Usage                                         |neat-usage|
+  3. Commands                                      |neat-commands|
+  4. Customization                                 |neat-customization|
+     4.1 Examples                                  |neat-customization-examples|
+
+
+==============================================================================
+1. Introduction                                                     *neat-intro*
+
+Neat is a simple VIM plugin to help you pretty print your data.
+
+
+==============================================================================
+2. Usage                                                            *neat-usage*
+
+Just call `:Neat` to make your current buffer neater. Ranges work as well.
+
+Want to invoke the neatness function of another filetype? Use >
+
+	:Neat <ft>
+
+
+==============================================================================
+3. Commands                                                      *neat-commands*
+
+:Neat
+
+
+==============================================================================
+4. Customization                                            *neat-customization*
+                                              
+To create neatness for your filetypes, define a global variable with the name
+`g:Neat<ft>` whereas <ft> is your filetype with the first letter Capitalized.
+This variable has to be a list of command strings.
+
+
+------------------------------------------------------------------------------
+4.1 Example                                         *neat-customization-example*
+
+A simple definition for files of type 'xml': >
+
+	:let g:NeatXml = [ 's/></>\r</ge', 'normal ==' ]
+
+
+vim:tw=78:ts=8:ft=help:norl:
