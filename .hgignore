@@ -5,3 +5,4 @@ syntax: glob
 .swp
 *.bak
 *.orig
+doc/tags
