@@ -32,7 +32,7 @@ Just call `:Neat` to make your current buffer neater. Ranges work as well.
 
 Want to invoke the neatness function of another filetype? Use >
 
-	:Neat <ft>
+    :Neat <ft>
 
 
 ==============================================================================
@@ -44,17 +44,18 @@ Want to invoke the neatness function of another filetype? Use >
 ==============================================================================
 4. Customization                                            *neat-customization*
                                               
-To create neatness for your filetypes, define a global variable with the name
-`g:Neat<ft>` whereas <ft> is your filetype with the first letter Capitalized.
-This variable has to be a list of command strings.
+To create neatness for your filetypes, add an autoloadable file `neat/<ft>.vim`
+and define a global variable with the name `g:neat#<ft>#commands` in there. This
+variable has to be a list of command strings.
 
 
 ------------------------------------------------------------------------------
 4.1 Example                                         *neat-customization-example*
 
-A simple definition for files of type 'xml': >
+To create a simple definition for files of type `xml`, create
+`autoload/neat/xml.vim` with the following contents: >
 
-	:let g:NeatXml = [ 's/></>\r</ge', 'normal ==' ]
+    let neat#xml#commands = [ 's/></>\r</ge', 'normal ==' ]
 
 
 vim:tw=78:ts=8:ft=help:norl:

@@ -18,23 +18,22 @@ function! s:Neat(...) range
     else
         let ft = a:1
     endif
-    let neat_command = 'g:Neat' . substitute(ft, '.*', '\u&', '')
-    if !exists(neat_command)
+    let neat_command = 'g:neat#' . ft . '#commands'
+    try
+        let neat_commands = eval(neat_command)
+    catch /^Vim\%((\a\+)\)\=:E121/
         echoerr 'Neat command not defined for filetype "'
                     \ . ft
                     \ . '": "'
                     \ . neat_command
                     \ . '"'
-    else
-        for cmd in eval(neat_command)
-            execute a:firstline . ','. a:lastline . cmd
-        endfor
-    endif
+        return
+    endtry
+    for cmd in neat_commands
+        execute a:firstline . ','. a:lastline . cmd
+    endfor
 endfunction
 
 command! -nargs=? -range=% -complete=filetype
             \ Neat
             \ <line1>,<line2>call s:Neat(<f-args>)
-
-let g:NeatJson = [ '!python -mjson.tool' ]
-let g:NeatXml = [ 's/></>\r</ge', 'normal ==' ]
