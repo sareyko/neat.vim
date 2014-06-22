@@ -15,8 +15,9 @@
   1. Introduction                                  |neat-intro|
   2. Usage                                         |neat-usage|
   3. Commands                                      |neat-commands|
-  4. Customization                                 |neat-customization|
-     4.1 Examples                                  |neat-customization-examples|
+  4. Mappings                                      |neat-mappings|
+  5. Customization                                 |neat-customization|
+     5.1 Examples                                  |neat-customization-examples|
 
 
 ==============================================================================
@@ -42,20 +43,29 @@ Want to invoke the neatness function of another filetype? Use >
 
 
 ==============================================================================
-4. Customization                                            *neat-customization*
+4. Mappings                                                      *neat-mappings*
+
+<Leader>n
+    Default normal mode mapping to pretty print the current visual selection
+    or the whole buffer if nothing is selected.
+
+
+==============================================================================
+5. Customization                                            *neat-customization*
                                               
 To create neatness for your filetypes, add an autoloadable file `neat/<ft>.vim`
 and define a global variable with the name `g:neat#<ft>#commands` in there. This
-variable has to be a list of command strings.
+variable has to be a list of command strings to be executed on a temporary
+buffer provided by neat.vim.
 
 
 ------------------------------------------------------------------------------
-4.1 Example                                         *neat-customization-example*
+5.1 Example                                         *neat-customization-example*
 
 To create a simple definition for files of type `xml`, create
 `autoload/neat/xml.vim` with the following contents: >
 
-    let neat#xml#commands = [ 's/></>\r</ge', 'normal ==' ]
+    let neat#xml#commands = [ '%s/></>\r</ge', '%normal ==' ]
 
 
 vim:tw=78:ts=8:ft=help:norl:

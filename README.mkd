@@ -14,7 +14,8 @@ Want to invoke the neatness function of another filetype? Use `:Neat <ft>`.
 
 To create neatness for your filetypes, add an autoloadable file `neat/<ft>.vim`
 and define a global variable with the name `g:neat#<ft>#commands` in there. This
-variable has to be a list of command strings.
+variable has to be a list of command strings to be executed on a temporary
+buffer provided by neat.vim.
 
 
 ### Example
@@ -23,5 +24,5 @@ To create a simple definition for files of type `xml`, create
 `autoload/neat/xml.vim` with the following contents:
 
 ```VimL
-let neat#xml#commands = [ 's/></>\r</ge', 'normal ==' ]
+let neat#xml#commands = [ '%s/></>\r</ge', '%normal ==' ]
 ```

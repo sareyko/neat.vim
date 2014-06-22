@@ -1,10 +1,10 @@
-function neat#xml#neat() range
+function neat#xml#neat()
     if executable('xmllint')
-        execute a:firstline . ',' . a:lastline . '!xmllint --format -'
-        execute a:firstline . ',' . a:lastline . 'normal =='
+        execute '%!xmllint --format -'
+        execute '%normal =='
     else
-        execute a:firstline . ',' . a:lastline . 's/></>\r</ge'
-        execute a:firstline . ',' . a:lastline . 'normal =='
+        execute '%s/></>\r</ge'
+        execute '%normal =='
     endif
 endfunction
 let neat#xml#commands = [ 'call neat#xml#neat()' ]

@@ -1,7 +1,9 @@
-function neat#html#neat() range
+function neat#html#neat()
     if executable('tidy')
-        execute a:firstline . ',' . a:lastline . '!tidy -i 2> /dev/null'
-        execute a:firstline . ',' . a:lastline . 'normal =='
+        execute '%!tidy --tidy-mark false '
+                    \ . '--doctype omit '
+                    \ . '-indent --indent-spaces ' . shiftwidth()
+                    \ . ' 2> /dev/null'
     else
         echoerr 'tidy not found'
     endif

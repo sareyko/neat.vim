@@ -1,1 +1,1 @@
-let neat#json#commands = [ '!python -mjson.tool' ]
+let neat#json#commands = [ '%!python -mjson.tool' ]
