@@ -4,7 +4,7 @@
 " Author:      Sebastian Sareyko <sebastian@sareyko.net>
 " License:     New (3-clause) BSD License. See COPYING for details.
 " Website:     https://bitbucket.org/sareyko/neat.vim
-" Version:     1.0
+" Version:     1.1
 " ============================================================================
 
 if exists('g:loaded_neat')
