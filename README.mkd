@@ -2,6 +2,8 @@
 
 A simple VIM plugin to help you pretty print your data.
 
+![Demo screencast](http://i.imgur.com/0lfg4Q3.gif)
+
 
 ## Usage
 
